@@ -1,13 +1,28 @@
 ---
 - name: Run Maven Build
   hosts: localhost
+  become: yes
+  become_user: root
   tasks:
-     - name: Execute Maven Command
-       shell: mvn clean install
-       args:
-         chdir: ./target/
-       register: mvn_output
 
-     - name: Display Maven Output
-       debug:
-         var: mvn_output.stdout_lines
+      - name: clone respository
+        git:
+          repo:
+          dest: ~/ansible-mvn-ci
+          clone: yes
+          update: yes
+
+      - name: Install Maven
+        apt:  
+          name: maven
+          state: present
+          update_cache: yes
+
+      - name: Execute Maven Command
+        shell: mvn clean install
+        args:
+          chdir: ~/ansible-mvn-ci
+        register: mvn_output
+
+      - name: Display Maven Output
+        var: mvn_output.stdout_lines
