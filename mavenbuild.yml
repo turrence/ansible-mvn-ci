@@ -1,18 +1,13 @@
 ---
 - name: Run Maven Build
-  hosts: all
-  become: yes
-  become_user: root
-  gather_facts: false
+  hosts: localhost
   tasks:
-    - include_role:
-        name: tomcat
-    - name: Clone Git Repository
-      git:
-        repo: 'https://github.com/turrence/ansible-mvn-ci.git'
-        dest: '~/helloJava'
+     - name: Execute Maven Command
+       shell: mvn clean install
+       args:
+         chdir: ./target/
+       register: mvn_output
 
-    - name: Run Maven Build
-      command: mvn clean install
-      args:
-        chdir: '~/helloJava'
+     - name: Display Maven Output
+       debug:
+         var: mvn_output.stdout_lines
