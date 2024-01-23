@@ -8,7 +8,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
  <groupId>com.example</groupId>
  <artifactId>hello-world</artifactId>
  <version>1.0</version>
- <packaging>jar</packaging>
+ <packaging>war</packaging>
 
  <name>Hello World Application</name>
  <url>http://maven.apache.org</url>
