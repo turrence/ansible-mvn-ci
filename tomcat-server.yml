@@ -47,7 +47,7 @@
     
    - name: Move files to the /opt/tomcat9 directory
      become: yes
-     shell: "mv /opt/tomcat9/apache*/* /opt/tomcat9"
+     shell: "mv -f /opt/tomcat9/apache*/* /opt/tomcat9"
 
    - name: Creating a service file
      become: yes
