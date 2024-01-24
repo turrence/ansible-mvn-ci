@@ -6,7 +6,7 @@
   tasks:
     - name: clone respository
       git:
-        repo:
+        repo: https://github.com/turrence/ansible-mvn-ci.git
         dest: ~/ansible-mvn-ci
         clone: yes
         update: yes
