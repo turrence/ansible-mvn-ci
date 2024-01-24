@@ -7,7 +7,7 @@
     - name: clone respository
       git:
         repo: https://github.com/turrence/ansible-mvn-ci.git
-        dest: ~/ansible-mvn-ci
+        dest: /home/labsuser/ansible-mvn-ci
         clone: yes
         update: yes
 
@@ -19,5 +19,5 @@
     - name: Execute Maven Command
       shell: mvn clean install
       args:
-        chdir: ~/ansible-mvn-ci
+        chdir: /home/labsuser/ansible-mvn-ci
       register: mvn_output
