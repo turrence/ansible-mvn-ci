@@ -22,6 +22,3 @@
       args:
         chdir: ~/ansible-mvn-ci
       register: mvn_output
-
-    - name: Display Maven Output
-      var: mvn_output.stdout_lines
