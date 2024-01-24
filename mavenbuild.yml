@@ -21,3 +21,11 @@
       args:
         chdir: /home/labsuser/ansible-mvn-ci
       register: mvn_output
+    
+    - name: Setup tomcat server
+      import_playbook: tomcat-server.yml
+
+    - name: Copy .war file to Tomcat webapps directory
+      copy:
+        src: /home/labsuser/ansible-mvn-ci/target/hello-world-1.0.war
+        dest: /opt/tomcat9/webapps/
