@@ -8,7 +8,6 @@
      become: yes
      apt:
       name: openjdk-8-jre-headless
-      update_cache: yes
       state: present
   
    - name: validate if Java is availble 
