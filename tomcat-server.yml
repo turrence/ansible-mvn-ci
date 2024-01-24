@@ -26,10 +26,10 @@
         name: tomcat
         state: present
 
-   - name: Create a Directory /opt/tomcat8
+   - name: Create a Directory /opt/tomcat9
      become: yes
      file:
-       path: /opt/tomcat8
+       path: /opt/tomcat9
        state: directory
        mode: 0755
        owner: tomcat
@@ -39,16 +39,16 @@
      become: yes
      unarchive:
        src: "{{download_url}}"
-       dest: /opt/tomcat8
+       dest: /opt/tomcat9
        mode: 0755
        remote_src: yes
        group: tomcat
        owner: tomcat
     
-   - name: Move files to the /opt/tomcat8 directory
+   - name: Move files to the /opt/tomcat9 directory
      become: yes
      become_user: tomcat
-     shell: "mv /opt/tomcat8/apache*/* /opt/tomcat8"
+     shell: "mv /opt/tomcat9/apache*/* /opt/tomcat9"
 
    - name: Creating a service file
      become: yes
@@ -67,8 +67,8 @@
         Environment="CATALINA_HOME=/opt/tomcat8"
         Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
 
-        ExecStart=/opt/tomcat8/bin/startup.sh
-        ExecStop=/opt/tomcat8/bin/shutdown.sh
+        ExecStart=/opt/tomcat9/bin/startup.sh
+        ExecStop=/opt/tomcat9/bin/shutdown.sh
         Restart=on-abnormal
 
         [Install]
