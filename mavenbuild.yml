@@ -16,6 +16,7 @@
         name: maven
         state: present
         update_cache: yes
+      ignore_errors: true
 
     - name: Execute Maven Command
       shell: mvn clean install
