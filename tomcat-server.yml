@@ -9,7 +9,7 @@
      apt:
       name: openjdk-8-jre-headless
       state: present
-      cache_update: true
+      update_cache: true
   
    - name: validate if Java is availble 
      shell: 
