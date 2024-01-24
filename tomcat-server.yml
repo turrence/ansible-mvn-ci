@@ -61,9 +61,9 @@
         [Service]
         Type=forking
         User=tomcat
-        Environment="CATALINA_PID=/opt/tomcat8/logs/tomcat.pid"
-        Environment="CATALINA_BASE=/opt/tomcat8"
-        Environment="CATALINA_HOME=/opt/tomcat8"
+        Environment="CATALINA_PID=/opt/tomcat9/logs/tomcat.pid"
+        Environment="CATALINA_BASE=/opt/tomcat9"
+        Environment="CATALINA_HOME=/opt/tomcat9"
         Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
 
         ExecStart=/opt/tomcat9/bin/startup.sh
